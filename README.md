@@ -19,8 +19,8 @@ A template has the following for parts, but only `builders` is required.
 ## Validate and inspect
 
 ```
-packer validate sparkAMI.json
-packer inspect sparkAMI.json
+packer validate spark_ami.json
+packer inspect spark_ami.json
 ```
 
 
@@ -28,7 +28,7 @@ packer inspect sparkAMI.json
 Packer is able to get `access_key`, `secret_key1` and `region` from AWS configuration from system where is run.
 
 ## Building Image
-`packer build sparkAMI.json`
+`packer build spark_ami.json`
 
 
 
