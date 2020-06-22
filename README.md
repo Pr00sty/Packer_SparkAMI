@@ -15,6 +15,11 @@ A template has the following for parts, but only `builders` is required.
 
 4. `Post-Processors` – Post-processors are optional, and they can be used to upload artifacts, re-package, or more
 
+## Needed IAM Privileges
+
+[Here](https://www.packer.io/docs/builders/amazon#iam-task-or-instance-role) you can find minimal set permissions necessary for Packer to work
+
+
 
 ## Validate and inspect
 
@@ -25,7 +30,7 @@ packer inspect spark_ami.json
 
 
 ## Security tip
-Packer is able to get `access_key`, `secret_key1` and `region` from AWS configuration from system where is run.
+Packer is able to get `access_key`, `secret_key` and `region` from AWS configuration from system where is run.
 
 ## Building Image
 `packer build spark_ami.json`
