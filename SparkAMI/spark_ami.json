@@ -1,18 +1,19 @@
 {
   "variables": {
-    "vpc_region": "eu-west-1",
     "source_ami": "ami-0713f98de93617bb4",
     "instance_type": "t2.micro",
-    "ssh_username": "ec2-user"
+    "ssh_username": "ec2-user",
+	"ami_name": "spark.platform"
   },
   "builders": [
     {
       "type": "amazon-ebs",
-      "region": "{{user `vpc_region`}}",
+      "region": "",
       "associate_public_ip_address": true,
       "source_ami": "{{user `source_ami`}}",
       "instance_type": "{{user `instance_type`}}",
       "ssh_username": "{{user `ssh_username`}}",
+	  "name": "{{user `ami_name`}}",
       "ami_name": "{{user `ami_name`}}",
       "ami_description": "Amazon Linux with Spark"
     }
@@ -20,7 +21,14 @@
   "provisioners": [
     {
       "type": "shell",
-      "script": "baseInit.sh"
+      "script": "requirements.sh"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "manifest",
+      "output": "manifest.json",
+      "strip_path": true
     }
   ]
 }
