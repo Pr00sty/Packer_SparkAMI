@@ -3,7 +3,7 @@
     "source_ami": "ami-0713f98de93617bb4",
     "instance_type": "t2.micro",
     "ssh_username": "ec2-user",
-	"ami_name": "spark.platform"
+	"ami_name": "php_ami"
   },
   "builders": [
     {
