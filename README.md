@@ -11,14 +11,18 @@ A template has the following for parts, but only `builders` is required.
 
 2. `builders` – Builders are responsible for creating machines.
 
-3. `provisioners` – Provisioners use builtin and third-party software to install and configure the machine image after booting.
+3. `provisioners` – Provisioners use builtin and third-party software to install 
+and configure the machine image after booting.
 
 4. `Post-Processors` – Post-processors are optional, and they can be used to upload artifacts, re-package, or more
 
 ## Needed IAM Privileges
 
-[Here](https://www.packer.io/docs/builders/amazon#iam-task-or-instance-role) you can find minimal set permissions necessary for Packer to work
-
+[Here](https://www.packer.io/docs/builders/amazon#iam-task-or-instance-role) 
+you can find minimal set permissions necessary for Packer to work.
+In my [CloudFormation repository](https://github.com/Pr00sty) you can find 
+[iam_packer.yaml template](https://github.com/Pr00sty/CloudFormation/blob/master/iam_packer.yaml) 
+which create `packer_cli` user with minimal required privileges for build AMI using Packer.
 
 
 ## Validate and inspect
@@ -33,7 +37,9 @@ packer inspect spark_ami.json
 Packer is able to get `access_key`, `secret_key` and `region` from AWS configuration from system where is run.
 
 ## Building Image
-`packer build spark_ami.json`
+```
+packer build spark_ami.json
+```
 
 
 
